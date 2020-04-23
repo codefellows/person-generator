@@ -36,6 +36,23 @@ app.get('/search/:name', (request, response) => {
   response.send(data);
 })
 
+app.get('/', (request, response) => {
+  response.send(`
+    <h1>Welcome to the person generator</h1>
+    <ul>
+      <li>
+        <pre>GET /:name</pre>
+        <p style="display: inline;">returns a person using the provided <pre style="display: inline;">name</pre> request parameter</p>
+      </li>
+      <li>
+        <pre>GET /search/:name</pre>
+        <p style="display: inline;">returns a list of people using the provided <pre style="display: inline;">name</pre> request parameter</p>
+      </li>
+      </ul>
+    <p>All routes respond with application/json.</p>
+  `);
+})
+
 
 app.listen(PORT, () => {
   console.log('Person generator up on port ::: ' + PORT);
